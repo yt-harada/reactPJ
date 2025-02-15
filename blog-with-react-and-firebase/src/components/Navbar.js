@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse, faFilePen,faArrowRightFromBracket, faA } from '@fortawesome/free-solid-svg-icons'
 
 
-const Navbar = () => {
+const Navbar = ({ isAuth }) => {
   return <nav>
     <Link to='/'>
     <FontAwesomeIcon icon={faHouse} />
@@ -14,9 +14,16 @@ const Navbar = () => {
     <Link to='/createpost'>
     <FontAwesomeIcon icon={faFilePen} />
     ホーム記事投稿</Link>
+    {!isAuth ? (
     <Link to='/login'>
     <FontAwesomeIcon icon={faArrowRightFromBracket} />
     ログイン</Link>
+     ) : (
+      <Link to='/logout'>
+      <FontAwesomeIcon icon={faArrowRightFromBracket} />
+      ログアウト</Link>
+     )
+    } 
 
   </nav>;
 }  
